@@ -1,0 +1,16 @@
+version: '3.8'
+
+name: minecraft
+
+services:
+  minecraft:
+    restart: always
+    build: .
+    command: './papermc.sh'
+    volumes: 
+      - './server:/papermc'
+    ports:
+      - '25565:25565/tcp'
+      - '25565:25565/udp'
+    env_file:
+      - .env
